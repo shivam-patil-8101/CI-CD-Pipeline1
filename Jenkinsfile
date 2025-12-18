@@ -6,6 +6,11 @@ pipeline {
     }
 
     stages {
+        stage('Install') {
+            steps {
+                bat 'npm install'
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Skipping tests... No Test found'
@@ -14,11 +19,6 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'npm run build'
-            }
-        }
-        stage('Install') {
-            steps {
-                bat 'npm install'
             }
         }
         stage('Deploy') {
